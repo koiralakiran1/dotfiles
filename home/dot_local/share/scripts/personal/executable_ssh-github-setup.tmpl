@@ -1,0 +1,56 @@
+#! /usr/bin/env bash
+
+# Script for "Connecting to github with ssh"
+# Ref: https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+#
+# Asks for <filename> and <email>.
+# Doesn't check for existing ssh keys.
+# Uses "ed25519" key type (hardcoded).
+# Key saved to ~/.ssh/<filename>.
+# <filename> is "id_ed25519" by default.
+
+set -eufo pipefail
+
+DEFAULT_KEY_TYPE="ed25519"
+DEFAULT_FILENAME="id_$DEFAULT_KEY_TYPE"
+
+# Ask for file name (~/.ssh/<filename>)
+read -p "Enter filename ~/.ssh/(default = $DEFAULT_FILENAME): " filename
+
+# Ask for email
+read -p "Enter email: " email
+
+if [[ -z $filename ]]; then
+	filename=$DEFAULT_FILENAME
+fi
+
+if [[ -z $email ]]; then
+	echo "Email is required."
+	exit 1
+fi
+
+# Step: Generate new key and add to ssh-sgent
+# Ref: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+ssh-keygen -t $DEFAULT_KEY_TYPE -C $email -f ~/.ssh/$filename
+
+eval "$(ssh-agent -s)"
+
+{{ if eq .chezmoi.os "darwin" }}
+ssh-add --apple-use-keychain ~/.ssh/$filename
+{{ else }}
+ssh-add ~/.ssh/$filename
+{{ end }}
+
+# Step: Add ssh key to github account
+# Ref: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
+echo -e "Here's your public ssh key. Copy these and add it to github: \n"
+cat ~/.ssh/$filename.pub
+
+echo -e "Press any key when done: \n"
+
+read
+
+# Step: Testing your ssh connection
+# Ref: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection
+echo "Connecting to github with new ssh key "
+ssh -T git@github.com

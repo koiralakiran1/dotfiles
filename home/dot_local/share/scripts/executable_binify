@@ -1,0 +1,44 @@
+#! /usr/bin/env bash
+
+# Strip extension from shell scripts so that they can be kept in `bin` folders & executed using their `name` instead of `name.sh` or `name.zsh`
+# Usage
+# binify path/to/file.sh [path/to/out/dir = ./bin]
+# Output: ./bin/file
+
+set -eufo pipefaill
+
+if [[ $# -eq 0 ]]; then
+    echo "Binify(Error): No options passed."
+    exit 1
+fi
+
+function binify_file() {
+    if [[ ! -f "$1" ]]; then
+        echo "binify_file(Error): Input not a file."
+        exit 1
+    fi
+
+    local input_file=$1
+    local output_path="${2:-./bin}"
+
+    local file_name=$(basename -- $input_file)
+    local file_name_no_extension="${file_name%%.*}"
+    local bin_path="$output_path/$file_name_no_extension"
+
+    mkdir -p $output_path
+    cp $input_file "$bin_path"
+    chmod +x "$bin_path"
+    echo "Created: $bin_path"
+}
+
+if [[ -f "$1" ]]; then
+    binify_file $1 $2
+    exit 0
+fi
+
+# Binifying multiple files from a directory
+for item in $1/*; do
+    if [[ -f "$item" ]]; then
+        binify_file $item $2
+    fi
+done

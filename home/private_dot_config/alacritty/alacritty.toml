@@ -1,0 +1,17 @@
+import = [
+	"~/.config/alacritty/themes/tokyo-night.toml"
+]
+
+[cursor.style]
+blinking = "Always"
+
+[window]
+opacity = 0.70
+blur = true
+startup_mode = "Fullscreen"
+padding = { x = 10, y = 10 }
+
+[font]
+size = 16
+normal = { family = "MesloLGM Nerd Font", style = "Regular" }
+

@@ -1,0 +1,7 @@
+[".config/alacritty/themes"]
+    type = "archive"
+    url = "https://github.com/alacritty/alacritty-theme/archive/refs/heads/master.zip"
+    exact = true
+    stripComponents = 2 
+    refreshPeriod = "168h" # 7 days (1 week)
+    include = ["*/themes/**"]

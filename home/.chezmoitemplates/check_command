@@ -1,0 +1,4 @@
+if [ ! "$(command -v {{ . }})" ]; then
+	echo -e "${RED}Make sure that '{{ . }}' is installed. Maybe this script ran early?${NOCOLOR}\n"
+	exit 1
+fi

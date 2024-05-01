@@ -1,0 +1,19 @@
+[user]
+	name = {{ .fullName | quote }}
+	email = {{ .email | quote }}
+[alias]
+	s = status
+	b = branch
+	shame = blame -w -M
+	unstage = reset HEAD --
+	recent = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+[pull]
+	ff = only
+[pager]
+	branch = false
+[init]
+	defaultBranch = main
+[credential]
+	helper = cache --timeout=86400
+[core]
+	editor = nvim

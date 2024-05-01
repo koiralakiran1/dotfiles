@@ -1,0 +1,72 @@
+# Icons reference: https://www.nerdfonts.com/cheat-sheet
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$os\
+$username\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$fill\
+$all\
+$character
+"""
+
+[os]
+style = "yellow bold"
+format = "[\\[ $symbol \\]]($style) "
+# format = "[$symbol ]($style)"
+disabled = false 
+
+[os.symbols]
+Alpine = ""
+Amazon = ""
+Arch = ""
+Artix = ""
+Debian = ""
+Linux = ""
+Macos = ""
+Manjaro = ""
+Pop = ""
+Ubuntu = ""
+Unknown = ""
+Windows = "󰍲"
+
+[username]
+show_always = true
+style_user = "white"
+format = '[$user]($style) '
+
+[directory]
+style = 'yellow'
+format = '[  $path]($style)[$read_only]($read_only_style) '
+truncation_symbol = '../'
+
+[fill]
+symbol = ' '
+
+[package]
+disabled = true
+
+[character]
+success_symbol = '[󰶻](bold green)'
+error_symbol = '[󰶻](bold red) '
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = '[🍒 PICKING](bold red)'
+
+[git_metrics]
+disabled = false
+format = '([\(+$added]($added_style)/[-$deleted\)]($deleted_style) )'
+
+[memory_usage]
+disabled = true 
+symbol = '󰍛 '
+style = 'dimmed white'
+threshold = -1
+

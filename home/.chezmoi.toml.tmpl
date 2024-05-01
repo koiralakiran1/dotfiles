@@ -1,0 +1,15 @@
+{{- $fullName := promptStringOnce . "fullName" "Full name" -}}
+{{- $email := promptStringOnce . "email" "Email address" -}}
+{{- $agePublicKey := promptStringOnce . "agePublicKey" "Age public key" -}}
+
+encryption = "age"
+[age]
+    identity = "~/.config/chezmoi/key.txt"
+    recipient = {{ $agePublicKey | quote }}
+
+[data]
+    email = {{ $email | quote }}
+    fullName = {{ $fullName | quote }}
+
+[hooks.read-source-state.pre]
+	command=".local/share/chezmoi/scripts/00-install-package-manager.sh"

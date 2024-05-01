@@ -1,0 +1,2 @@
+# Profile file. Runs once in login (unless explicitly sourced later)
+# Environment variables are set here
