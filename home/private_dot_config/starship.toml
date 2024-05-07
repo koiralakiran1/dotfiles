@@ -1,72 +1,98 @@
 # Icons reference: https://www.nerdfonts.com/cheat-sheet
-
 "$schema" = 'https://starship.rs/config-schema.json'
 
+# New line is added in zshrc
+add_newline = false
 format = """
 $os\
-$username\
-$directory\
-$git_branch\
-$git_commit\
-$git_state\
-$git_metrics\
-$git_status\
-$fill\
-$all\
-$character
+$all
 """
 
-[os]
-style = "yellow bold"
-format = "[\\[ $symbol \\]]($style) "
-# format = "[$symbol ]($style)"
-disabled = false 
-
-[os.symbols]
-Alpine = ""
-Amazon = ""
-Arch = ""
-Artix = ""
-Debian = ""
-Linux = ""
-Macos = ""
-Manjaro = ""
-Pop = ""
-Ubuntu = ""
-Unknown = ""
-Windows = "󰍲"
+[character]
+success_symbol = '[󰶻](bold green) '
+error_symbol = '[󰶻](bold red) '
 
 [username]
 show_always = true
-style_user = "white"
-format = '[$user]($style) '
+format = '[$user]($style) in '
+style_user = 'blue bold'
+style_root = 'red bold'
 
 [directory]
-style = 'yellow'
+read_only = ' 💀'
+truncate_to_repo = false
+style = 'yellow bold'
 format = '[  $path]($style)[$read_only]($read_only_style) '
 truncation_symbol = '../'
+truncation_length = 5
 
-[fill]
-symbol = ' '
+[cmd_duration]
+format = '\(⏳[$duration]($style)\) '
 
-[package]
-disabled = true
+[memory_usage]
+symbol = '󰍛 '
 
-[character]
-success_symbol = '[󰶻](bold green)'
-error_symbol = '[󰶻](bold red) '
+#####################
+# git
+#####################
+[git_metrics]
+disabled = false
+format = '([\(+$added]($added_style)/[-$deleted\)]($deleted_style) )'
 
 [git_state]
 format = '[\($state( $progress_current of $progress_total)\)]($style) '
 cherry_pick = '[🍒 PICKING](bold red)'
 
-[git_metrics]
-disabled = false
-format = '([\(+$added]($added_style)/[-$deleted\)]($deleted_style) )'
+[git_branch]
+symbol = '🌿 '
 
-[memory_usage]
-disabled = true 
-symbol = '󰍛 '
-style = 'dimmed white'
-threshold = -1
+#####################
+# Contexts
+#####################
+[hostname]
+ssh_symbol = ' '
 
+[docker_context]
+symbol = ' '
+
+[aws]
+symbol = '  '
+
+#####################
+# Operating systems
+#####################
+[os]
+disabled = true
+format = '[$symbol]($style) '
+
+[os.symbols]
+Alpine = ' '
+Amazon = ' '
+Arch = '[](blue) '
+Artix = ' '
+Debian = ' '
+Linux = ' '
+Macos = ' '
+Manjaro = '[](green) '
+Pop = ' '
+Ubuntu = ' '
+Unknown = ' '
+Windows = '[](blue) '
+
+#####################
+# Languages
+#####################
+[package]
+disabled = true
+
+[python]
+symbol = ' '
+
+[golang]
+symbol = ' '
+
+[rust]
+symbol = ' '
+
+[java]
+symbol = ' '

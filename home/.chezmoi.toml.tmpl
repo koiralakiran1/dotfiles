@@ -6,9 +6,21 @@ encryption = "age"
     identity = "~/.config/chezmoi/key.txt"
     recipient = "age1v5k8cgk77hk7rqnsw0whzdqcpjm65wrm8hma2n9hc2unsadzea5q9atky3"
 
+[diff]
+    exclude = ["externals", "scripts"]
+
 [data]
     email = {{ $email | quote }}
     fullName = {{ $fullName | quote }}
 
-[hooks.read-source-state.pre]
-	command=".local/share/chezmoi/scripts/00-install-package-manager.sh"
+[data.dirs]
+    cache = "$HOME/.extras/.cache"
+    zshDot = "$HOME/.config/zsh"
+    zsh = "$HOME/.config/zsh/.oh-my-zsh"
+    zshCustom = "$HOME/.config/zsh/.oh-my-zsh/custom"
+    scripts = "$HOME/.local/share/scripts"
+    personalScripts = "$HOME/.local/share/scripts/personal"
+    workScripts = "$HOME/.local/share/scripts/work"
+
+#[hooks.read-source-state.pre]
+#	command=".local/share/chezmoi/.chezmoihooks/install-package-manager.sh"

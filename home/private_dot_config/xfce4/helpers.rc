@@ -1,4 +1,5 @@
 FileManager=Thunar
 MailReader=thunderbird
-
 WebBrowser=brave-browser
+TerminalEmulator=alacritty
+

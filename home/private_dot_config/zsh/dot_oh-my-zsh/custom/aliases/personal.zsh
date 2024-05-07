@@ -1,14 +1,35 @@
+# Edit chezmoi managed files with chezmoi edit if it's clean; else $EDITOR
+function edit() {
+    if [ $# -eq 0 ]; then
+        ${EDITOR}
+        return
+    fi
+
+    # Added "--hardlink=false" option to get neovim undo available.
+    chezmoi managed $1 > /dev/null 2>&1\
+        && chezmoi edit --apply --hardlink=false $1\
+        || ${EDITOR} $@
+}
+
 # Additional ls
+alias ls="lsd"
 alias lla="ls -la"
+
+# bat/cat
+alias cat="bat --color=always --style=numbers"
+alias man="batman"
+
+# Utilities
+alias paths="echo $PATH | tr : '\n'"
 
 # Programs
 alias bw='NODE_OPTIONS="--no-deprecation" bw'
 alias python=python3
 alias py=python
 alias wpy="which python"
-alias vim=nvim
-alias vi=$EDITOR
-alias v=$EDITOR
+alias vim=edit
+alias vi=edit
+alias v=edit
 alias vpn=expressvpn
 alias czm=chezmoi
 alias chz=chezmoi

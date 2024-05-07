@@ -2,9 +2,7 @@
 # It should contain exported variables that should be available to other programs.
 # Environment variables are set here
 # Eg: $PATH, $EDITOR etc.
-
-# Adds `~/.local/share/scripts/*` to $PATH
-export PATH="$HOME/.local/share/scripts:$HOME/.local/share/scripts/personal:$HOME/.local/share/scripts/work:$PATH"
+# But all $PATH related changes are in .zprofile because of MacOS specific issue
 
 # Default Programs
 export EDITOR="nvim"
@@ -19,57 +17,17 @@ export LESSHISTFILE="-"
 export XDG_CACHE_HOME="$HOME/.extras/.cache"
 export STARSHIP_CACHE="$HOME/.extras/.cache"
 export ZSH="$HOME/.config/zsh/.oh-my-zsh" # Path to my oh-my-zsh installations
-
-# MacOS configurations
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# Load cargo env
-[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
-
-# Define Android sdk root
-export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
-export ANDROID_HOME="$HOME/Android/Sdk"
-export PATH="$ANDROID_HOME/platform-tools:$PATH"
+export TLDR_CACHE_DIR="$XDG_CACHE_HOME"
+export CARGO_HOME="$HOME/.extras/.cargo"
+export RUSTUP_HOME="$HOME/.extras/.rustup"
+export DOCKER_CONFIG="$HOME/.extras/.docker"
+export GEM_HOME="$HOME/.extras/.gem"
+export GEM_PATH="$HOME/.extras/.gem"
 
 # Set JDK installation directory according to selected Java compiler
 # https://stackoverflow.com/a/29622512/6740339
 export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
 
-# Bitwarden cli
-# export BW_SESSION="${BW_SESSION:-$(bw unlock --raw)}"
-
-#
-# ZSH profile/behavior specific config
-# Settings for proper history (saving and searching for autocomplete)
-#
-setopt HIST_EXPIRE_DUPS_FIRST
-setopt HIST_IGNORE_DUPS
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_SPACE
-setopt HIST_FIND_NO_DUPS
-setopt HIST_SAVE_NO_DUPS
-setopt histignorealldups
-export HISTSIZE=10000
-export HISTFILESIZE=20000
-
-# Uncomment the following line to use case-sensitive completion.
-export CASE_SENSITIVE="false"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-export HYPHEN_INSENSITIVE="true"
-
-# Uncomment one of the following lines to change the auto-update behavior
-zstyle ':omz:update' mode disabled  # disable automatic updates - It will be updated by chezmoi, every 7 days
-
-# Uncomment the following line to disable auto-setting terminal title.
-export DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-export ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-export COMPLETION_WAITING_DOTS="true"
+# Define Android sdk root
+export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
+export ANDROID_HOME="$HOME/Android/Sdk"

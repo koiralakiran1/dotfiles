@@ -1,0 +1,33 @@
+#! /usr/bin/env bash
+
+# {{ template "scripts-library" }}
+
+true || source ../../.chezmoitemplates/scripts-library
+
+print_running_file
+
+function backup_if_exist() {
+    if [[ -d "${1}" ]]; then
+        mv -f "${1}" "${1}.bkp"
+    fi
+}
+
+declare chezmoi_dir="${CHEZMOI_SOURCE_DIR:-~/.local/share/chezmoi/home}"
+declare config_dir="${chezmoi_dir}/private_dot_config"
+
+# symlink nvim directory
+declare nvim_dir="${config_dir}/nvim"
+declare existing_nvim="$(chezmoi target-path ${nvim_dir})"
+backup_if_exist "${existing_nvim}"
+ln -sf "${nvim_dir}" "${existing_nvim}"
+log_success "Linked nvim config"
+
+{{- if eq .chezmoi.os "linux" }}
+
+# symlink xfce directory
+declare xfce4_dir="${config_dir}/xfce4"
+declare existing_xfce4="$(chezmoi target-path ${xfce4_dir})"
+backup_if_exist "${existing_xfce4}"
+ln -sf "${xfce4_dir}" "${existing_xfce4}"
+log_success "Linked xfce4 config"
+{{ end -}}

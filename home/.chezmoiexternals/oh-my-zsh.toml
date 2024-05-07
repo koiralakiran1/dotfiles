@@ -17,12 +17,6 @@
     exact = false
     stripComponents = 1
     refreshPeriod = "168h"
-[".config/zsh/.oh-my-zsh/custom/plugins/zsh-history-substring-search"]
-    type = "archive"
-    url = "https://github.com/zsh-users/zsh-history-substring-search/archive/refs/heads/master.zip"
-    exact = false
-    stripComponents = 1
-    refreshPeriod = "168h"
 [".config/zsh/.oh-my-zsh/custom/plugins/zsh-vi-mode"]
     type = "archive"
     url = "https://github.com/jeffreytse/zsh-vi-mode/archive/refs/heads/master.zip"
@@ -35,18 +29,10 @@
     exact = false
     stripComponents = 1
     refreshPeriod = "168h"
-[".config/zsh/.oh-my-zsh/custom/plugins/zsh-autocomplete"]
+[".config/zsh/.oh-my-zsh/custom/plugins/fzf-tab"]
     type = "archive"
-    url = "https://github.com/marlonrichert/zsh-autocomplete/archive/refs/heads/main.zip"
+    url = "https://github.com/Aloxaf/fzf-tab/archive/refs/heads/master.zip"
     exact = false
     stripComponents = 1
     refreshPeriod = "168h"
-
-# Contains auto completions commands not already available in zsh (few and not used)
-#[".config/zsh/.oh-my-zsh/custom/plugins/zsh-completions"]
-#    type = "archive"
-#    url = "https://github.com/zsh-users/zsh-completions/archive/refs/heads/master.zip"
-#    exact = false
-#    stripComponents = 1
-#    refreshPeriod = "168h"
-#
+    exclude = ["**/test"]

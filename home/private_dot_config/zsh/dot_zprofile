@@ -1,2 +1,31 @@
-# Profile file. Runs once in login (unless explicitly sourced later)
-# Environment variables are set here
+# .zprofile file.
+# Set $PATH variables here as any $PATH in .zshenv would get reversed in MacOS
+# https://stackoverflow.com/a/59141422/6740339
+# https://apple.stackexchange.com/a/432227
+# https://apple.stackexchange.com/q/436314
+
+# MacOS configurations
+# Load brew's executables
+if [[ -x "/opt/homebrew/bin/brew" ]]; then
+	# arm64 (mac)
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -x "/usr/local/Homebrew/bin/brew" ]]; then
+	# x86_64 (VM)
+	eval "$(/usr/local/Homebrew/bin/brew shellenv)"
+fi
+
+# Load cargo env
+# shellcheck source=/dev/null
+[[ -f "${HOME}/.cargo/env" ]] && source "${HOME}/.cargo/env"
+
+# https://unix.stackexchange.com/a/62599
+# Add to $PATH
+# Higher on the list = override later entries (work > personal)
+typeset -U path
+path=(
+	"$HOME/.local/share/scripts/work"
+	"$HOME/.local/share/scripts/personal"
+	"$HOME/.local/share/scripts"
+	"${ANDROID_HOME:-$HOME/Android/Sdk}/platform-tools"
+	$path
+)

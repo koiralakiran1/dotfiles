@@ -1,0 +1,21 @@
+#! /usr/bin/env bash
+
+# {{ template "scripts-library" }}
+
+true || source ../../.chezmoitemplates/scripts-library
+
+print_running_file
+
+declare chezmoi_dir="${CHEZMOI_WORKING_TREE:-~/.local/share/chezmoi}"
+
+# {{ if eq .chezmoi.os "darwin" }}
+# Brewfile hash: {{ include "../package-lists/Brewfile-base" | sha256sum }}
+brew bundle install --no-lock --force --file "${chezmoi_dir}/package-lists/Brewfile-base"
+# {{ else if eq .chezmoi.os "linux" }}
+# From package list, pass all non-empty, non-comment lines to yay
+# Yay hash: {{ include "../package-lists/Yayfile-base" | sha256sum }}
+yay -Sy --needed $(cat "${chezmoi_dir}/package-lists/Yayfile-base" | grep -v '^\s*#' | grep -v '^$')
+pipx install ggshield
+# {{ end }}
+
+log_success "All base packages installed"

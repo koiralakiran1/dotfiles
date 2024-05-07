@@ -1,0 +1,10 @@
+#! /usr/bin/env bash
+
+# {{ template "scripts-library" }}
+
+true || source ../../.chezmoitemplates/scripts-library
+
+print_running_file
+
+declare bw_session="${BW_SESSION:-}"
+log_info "Bitwarden session: ${bw_session}"

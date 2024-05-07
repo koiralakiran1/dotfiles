@@ -1,1 +1,0 @@
-echo -e "\n${YELLOW}Running $(basename \"$0\")${NOCOLOR}\n"

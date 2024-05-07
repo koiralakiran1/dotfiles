@@ -1,6 +1,8 @@
 .config/zsh/.oh-my-zsh/cache
 .DS_Store
 key.txt.age
+.config/xfce4
+.config/nvim
 
 {{ if ne .chezmoi.os "darwin" }}
 .chezmoiscripts/darwin/**

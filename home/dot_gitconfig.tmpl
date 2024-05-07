@@ -1,6 +1,7 @@
 [user]
 	name = {{ .fullName | quote }}
 	email = {{ .email | quote }}
+    signingkey = ~/.ssh/github_sign.pub
 [alias]
 	s = status
 	b = branch
@@ -17,3 +18,9 @@
 	helper = cache --timeout=86400
 [core]
 	editor = nvim
+[gpg]
+    format = ssh
+[gpg "ssh"]
+    allowedSignersFile = ~/.ssh/allowed_signers
+[commit]
+    gpgsign = true

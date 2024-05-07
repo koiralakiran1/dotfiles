@@ -1,0 +1,15 @@
+#! /usr/bin/env bash
+
+# {{ template "scripts-library" }}
+
+true || source ../../.chezmoitemplates/scripts-library
+
+print_running_file "You may need age decryption key"
+
+if [[ ! -f "${HOME}/.config/chezmoi/key.txt" ]]; then
+    mkdir -p "${HOME}/.config/chezmoi"
+    chezmoi age decrypt --output "${HOME}/.config/chezmoi/key.txt" --passphrase "{{- .chezmoi.sourceDir -}}/key.txt.age"
+    chmod 600 "${HOME}/.config/chezmoi/key.txt"
+fi
+
+log_success "Age key decrypted"

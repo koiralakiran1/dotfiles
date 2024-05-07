@@ -1,0 +1,61 @@
+#! /usr/bin/env bash
+
+# {{ template "scripts-library" }}
+
+true || source ../../.chezmoitemplates/scripts-library
+
+print_running_file
+
+case "$(uname -s)" in
+Darwin)
+	# Install homebrew if not already exist
+	if ! command -v brew > /dev/null; then
+		print_running_file
+		log_info "Installing package manager: brew"
+
+		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || true
+
+		declare -a possible_installation_paths=(
+			"/opt/homebrew/bin/brew" # arm64
+			"/usr/local/Homebrew/bin/brew" #x86_64
+		)
+
+		for path in "${possible_installation_paths[@]}"; do
+			if [[ -x "${path}" ]]; then
+				eval "$(${path} shellenv)" || true
+			fi
+		done
+	fi
+	;;
+Linux)
+    if ! command -v pacman > /dev/null; then
+        error "Not implemented"
+    fi
+
+    if yay_install=$(command -v yay); then
+        log_success "Yay already installed ${yay_install}"
+        exit 0
+    fi
+
+    # Install yay or some AUR helper
+    if !command -v pacman -Ss yogurt > /dev/null; then
+        # Yay not available in pacman (eg: non-manjaro). Manual installation of binary
+        # https://github.com/Jguer/yay?tab=readme-ov-file#binary
+
+        cd $(mktemp --directory)
+        sudo pacman -Sy --needed git base-devel
+        git clone https://aur.archlinux.org/yay-bin.git
+        cd yay-bin
+        makepkg -si
+        log_success "Yay binary installed manually: $(which yay)"
+        exit 0
+    fi
+
+    # Install via pacman
+    sudo pacman -S --needed git base-devel yay
+    log_success "Yay installed with pacman: $(which yay)"
+	;;
+*)
+	error "Unsupported OS"
+    ;;
+esac

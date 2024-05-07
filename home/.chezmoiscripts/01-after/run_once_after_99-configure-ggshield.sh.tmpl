@@ -1,23 +1,19 @@
 #! /usr/bin/env bash
 
-set -eufo pipefail
+# {{ template "scripts-library" }}
 
-declare GREEN='\033[0;32m'
-declare RED='\033[0;31m'
-declare YELLOW='\033[0;33m'
-declare NOCOLOR='\033[0m'
+true || source ../../.chezmoitemplates/scripts-library
 
-{{ template "print_running_file" . }}
-
-if [ ! "$(command -v ggshield)" ]; then
-	echo -e "${RED}Make sure that 'ggshield' is installed. Maybe this script ran before install packages script?${NOCOLOR}\n"
-	exit 1
+if ! command -v ggshield > /dev/null; then
+    error "Make sure that 'ggshield' is installed. Maybe this script ran before packages install?"
 fi
 
-echo -e "${GREEN}This will now setup ggshield for security scanning on the local instance of your chezmoi repo.${NOCOLOR}\n" 
+log_info "This will now setup 'ggshield' for security scanning of the local instance of your chezmoi repo."
 
 ggshield auth login --method=token
 
 cd "${CHEZMOI_WORKING_TREE:-~/.local/share/chezmoi}"
 
 ggshield install --force --mode local
+
+log_success "'ggshield' installation done. Setup complete."

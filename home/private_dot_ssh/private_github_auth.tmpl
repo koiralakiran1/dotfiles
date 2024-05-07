@@ -1,1 +1,3 @@
-{{- (bitwardenFields "item" "github_ssh_auth") | dig "Private Key" "value" "" -}}
+-----BEGIN OPENSSH PRIVATE KEY-----
+{{ (bitwardenFields "item" "github_ssh_auth") | dig "Private Key" "value" "" }}
+-----END OPENSSH PRIVATE KEY-----

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-panel" version="1.0">
+  <property name="configver" type="int" value="2"/>
+  <property name="panels" type="array">
+    <value type="int" value="0"/>
+    <property name="dark-mode" type="bool" value="true"/>
+    <property name="panel-0" type="empty">
+      <property name="autohide-behavior" type="uint" value="0"/>
+      <property name="background-style" type="uint" value="0"/>
+      <property name="enable-struts" type="bool" value="true"/>
+      <property name="enter-opacity" type="uint" value="100"/>
+      <property name="icon-size" type="uint" value="0"/>
+      <property name="leave-opacity" type="uint" value="100"/>
+      <property name="length" type="double" value="100"/>
+      <property name="length-adjust" type="bool" value="true"/>
+      <property name="mode" type="uint" value="0"/>
+      <property name="nrows" type="uint" value="1"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="14"/>
+        <value type="int" value="4"/>
+        <value type="int" value="7"/>
+        <value type="int" value="11"/>
+        <value type="int" value="1"/>
+        <value type="int" value="3"/>
+        <value type="int" value="10"/>
+        <value type="int" value="15"/>
+        <value type="int" value="17"/>
+        <value type="int" value="18"/>
+        <value type="int" value="16"/>
+        <value type="int" value="12"/>
+        <value type="int" value="9"/>
+        <value type="int" value="6"/>
+        <value type="int" value="13"/>
+        <value type="int" value="2"/>
+      </property>
+      <property name="position" type="string" value="p=8;x=960;y=1066"/>
+      <property name="position-locked" type="bool" value="false"/>
+      <property name="role" type="string" value="xfce4-panel-12965750720"/>
+      <property name="size" type="uint" value="30"/>
+      <property name="span-monitors" type="bool" value="false"/>
+    </property>
+  </property>
+  <property name="plugins" type="empty">
+    <property name="plugin-1" type="string" value="pager">
+      <property name="miniature-view" type="bool" value="true"/>
+      <property name="numbering" type="bool" value="true"/>
+      <property name="rows" type="uint" value="1"/>
+      <property name="workspace-scrolling" type="bool" value="false"/>
+      <property name="wrap-workspaces" type="bool" value="false"/>
+    </property>
+    <property name="plugin-10" type="string" value="battery"/>
+    <property name="plugin-11" type="string" value="separator">
+      <property name="expand" type="bool" value="true"/>
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-12" type="string" value="separator">
+      <property name="style" type="uint" value="1"/>
+    </property>
+    <property name="plugin-13" type="string" value="separator">
+      <property name="style" type="uint" value="1"/>
+    </property>
+    <property name="plugin-14" type="string" value="whiskermenu">
+      <property name="button-icon" type="string" value="pop-cosmic-applications"/>
+      <property name="command-switchuser" type="string" value="dm-tool switch-to-greeter"/>
+      <property name="favorites" type="array">
+        <value type="string" value="xfce4-web-browser.desktop"/>
+        <value type="string" value="xfce4-mail-reader.desktop"/>
+        <value type="string" value="xfce4-file-manager.desktop"/>
+        <value type="string" value="xfce4-terminal-emulator.desktop"/>
+      </property>
+      <property name="favorites-in-recent" type="bool" value="true"/>
+      <property name="recent" type="array">
+        <value type="string" value="xfce4-screenshooter.desktop"/>
+        <value type="string" value="firefox.desktop"/>
+        <value type="string" value="thunar.desktop"/>
+        <value type="string" value="code.desktop"/>
+        <value type="string" value="Alacritty.desktop"/>
+        <value type="string" value="xfce-keyboard-settings.desktop"/>
+        <value type="string" value="xfce4-terminal.desktop"/>
+        <value type="string" value="brave-browser.desktop"/>
+        <value type="string" value="xfce4-terminal-emulator.desktop"/>
+        <value type="string" value="xfce4-taskmanager.desktop"/>
+        <value type="string" value="xfce4-accessibility-settings.desktop"/>
+        <value type="string" value="xfce-settings-manager.desktop"/>
+        <value type="string" value="xfce4-settings-editor.desktop"/>
+        <value type="string" value="panel-preferences.desktop"/>
+        <value type="string" value="org.gnome.FontManager.desktop"/>
+      </property>
+      <property name="view-mode" type="int" value="1"/>
+      <property name="show-command-logoutuser" type="bool" value="true"/>
+      <property name="show-command-restart" type="bool" value="true"/>
+      <property name="show-command-shutdown" type="bool" value="true"/>
+      <property name="show-command-logout" type="bool" value="false"/>
+      <property name="show-command-menueditor" type="bool" value="true"/>
+      <property name="show-command-profile" type="bool" value="true"/>
+      <property name="show-command-hibernate" type="bool" value="false"/>
+      <property name="show-command-suspend" type="bool" value="false"/>
+      <property name="show-command-switchuser" type="bool" value="true"/>
+      <property name="default-category" type="int" value="1"/>
+      <property name="recent-items-max" type="int" value="15"/>
+      <property name="launcher-icon-size" type="int" value="1"/>
+      <property name="menu-opacity" type="int" value="75"/>
+      <property name="menu-height" type="int" value="750"/>
+      <property name="menu-width" type="int" value="600"/>
+      <property name="category-icon-size" type="int" value="0"/>
+      <property name="launcher-show-name" type="bool" value="true"/>
+      <property name="position-categories-horizontal" type="bool" value="true"/>
+      <property name="position-categories-alternate" type="bool" value="true"/>
+      <property name="position-profile-alternate" type="bool" value="false"/>
+      <property name="position-search-alternate" type="bool" value="false"/>
+      <property name="position-commands-alternate" type="bool" value="false"/>
+      <property name="profile-shape" type="int" value="1"/>
+      <property name="button-single-row" type="bool" value="false"/>
+      <property name="launcher-show-tooltip" type="bool" value="true"/>
+      <property name="sort-categories" type="bool" value="true"/>
+      <property name="stay-on-focus-out" type="bool" value="false"/>
+      <property name="search-actions" type="int" value="6">
+        <property name="action-0" type="empty">
+          <property name="name" type="string" value="Man Pages"/>
+          <property name="pattern" type="string" value="#"/>
+          <property name="command" type="string" value="exo-open --launch TerminalEmulator man %s"/>
+          <property name="regex" type="bool" value="false"/>
+        </property>
+        <property name="action-1" type="empty">
+          <property name="name" type="string" value="Search the Web"/>
+          <property name="pattern" type="string" value="?"/>
+          <property name="command" type="string" value="exo-open --launch WebBrowser https://duckduckgo.com/?q=%u"/>
+          <property name="regex" type="bool" value="false"/>
+        </property>
+        <property name="action-2" type="empty">
+          <property name="name" type="string" value="Search for Files"/>
+          <property name="pattern" type="string" value="-"/>
+          <property name="command" type="string" value="catfish --path=~ --start %s"/>
+          <property name="regex" type="bool" value="false"/>
+        </property>
+        <property name="action-3" type="empty">
+          <property name="name" type="string" value="Wikipedia"/>
+          <property name="pattern" type="string" value="!w"/>
+          <property name="command" type="string" value="exo-open --launch WebBrowser https://en.wikipedia.org/wiki/%u"/>
+          <property name="regex" type="bool" value="false"/>
+        </property>
+        <property name="action-4" type="empty">
+          <property name="name" type="string" value="Run in Terminal"/>
+          <property name="pattern" type="string" value="!"/>
+          <property name="command" type="string" value="exo-open --launch TerminalEmulator %s"/>
+          <property name="regex" type="bool" value="false"/>
+        </property>
+        <property name="action-5" type="empty">
+          <property name="name" type="string" value="Open URI"/>
+          <property name="pattern" type="string" value="^(file|http|https):\/\/(.*)$"/>
+          <property name="command" type="string" value="exo-open \0"/>
+          <property name="regex" type="bool" value="true"/>
+        </property>
+      </property>
+    </property>
+    <property name="plugin-15" type="string" value="separator"/>
+    <property name="plugin-16" type="string" value="clock">
+      <property name="digital-layout" type="uint" value="3"/>
+      <property name="digital-time-font" type="string" value="Sans 10"/>
+      <property name="digital-time-format" type="string" value="%I:%M %p"/>
+      <property name="mode" type="uint" value="2"/>
+    </property>
+    <property name="plugin-17" type="string" value="clock">
+      <property name="digital-date-font" type="string" value="Sans 10"/>
+      <property name="digital-layout" type="uint" value="2"/>
+      <property name="mode" type="uint" value="2"/>
+    </property>
+    <property name="plugin-18" type="string" value="separator">
+      <property name="style" type="uint" value="3"/>
+    </property>
+    <property name="plugin-2" type="string" value="actions">
+      <property name="appearance" type="uint" value="0"/>
+      <property name="invert-orientation" type="bool" value="false"/>
+      <property name="items" type="array">
+        <value type="string" value="-logout-dialog"/>
+        <value type="string" value="-switch-user"/>
+        <value type="string" value="-separator"/>
+        <value type="string" value="+logout"/>
+        <value type="string" value="-lock-screen"/>
+        <value type="string" value="-hibernate"/>
+        <value type="string" value="-suspend"/>
+        <value type="string" value="-restart"/>
+        <value type="string" value="-shutdown"/>
+      </property>
+    </property>
+    <property name="plugin-3" type="string" value="separator"/>
+    <property name="plugin-4" type="string" value="separator">
+      <property name="expand" type="bool" value="false"/>
+      <property name="style" type="uint" value="1"/>
+    </property>
+    <property name="plugin-6" type="string" value="systray">
+      <property name="hidden-items" type="array">
+      </property>
+      <property name="hide-new-items" type="bool" value="false"/>
+      <property name="icon-size" type="int" value="0"/>
+      <property name="known-items" type="array">
+        <value type="string" value="chrome_status_icon_1"/>
+        <value type="string" value="blueman"/>
+      </property>
+      <property name="known-legacy-items" type="array">
+        <value type="string" value="task manager"/>
+        <value type="string" value="wi-fi network connection “tp-link_9e98” active: tp-link_9e98 (65%)"/>
+        <value type="string" value="ethernet network connection “wired connection 1” active"/>
+        <value type="string" value="networkmanager applet"/>
+        <value type="string" value="pamac-tray"/>
+        <value type="string" value="clipman"/>
+      </property>
+      <property name="menu-is-primary" type="bool" value="false"/>
+      <property name="names-visible" type="array">
+        <value type="string" value="pnmixer"/>
+        <value type="string" value="manjaro-settings-manager-daemon"/>
+        <value type="string" value="networkmanager applet"/>
+        <value type="string" value="orage"/>
+        <value type="string" value="pamac-tray"/>
+        <value type="string" value="blueman-applet"/>
+        <value type="string" value="clipman"/>
+        <value type="string" value="xfce4-power-manager"/>
+        <value type="string" value="xnoise"/>
+      </property>
+      <property name="show-frame" type="bool" value="false"/>
+      <property name="single-row" type="bool" value="true"/>
+      <property name="square-icons" type="bool" value="true"/>
+      <property name="symbolic-icons" type="bool" value="false"/>
+    </property>
+    <property name="plugin-7" type="string" value="tasklist">
+      <property name="flat-buttons" type="bool" value="true"/>
+      <property name="grouping" type="bool" value="true"/>
+      <property name="show-handle" type="bool" value="false"/>
+      <property name="show-labels" type="bool" value="true"/>
+      <property name="show-tooltips" type="bool" value="true"/>
+      <property name="switch-workspace-on-unminimize" type="bool" value="false"/>
+    </property>
+    <property name="plugin-9" type="string" value="pulseaudio">
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+      <property name="known-players" type="string" value="Brave;firefox"/>
+    </property>
+  </property>
+</channel>

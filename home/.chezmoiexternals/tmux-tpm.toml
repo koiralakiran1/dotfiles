@@ -1,0 +1,6 @@
+[".config/tmux/plugins/tpm"]
+    type = "archive"
+    url = "https://github.com/tmux-plugins/tpm/archive/refs/heads/master.zip"
+    exact = false
+    stripComponents = 1
+    refreshPeriod = "168h" # 7 days (1 week)

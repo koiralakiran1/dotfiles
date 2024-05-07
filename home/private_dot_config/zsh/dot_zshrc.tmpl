@@ -1,0 +1,64 @@
+# zmodload zsh/zprof
+
+# Disable automatic updates - It will be updated by chezmoi
+zstyle ':omz:update' mode disabled
+
+# Autocomplete global aliases (alias -g) i.e my shortcuts
+_complete_alias() {
+    [[ -n $PREFIX ]] && compadd -- ${(M)${(k)galiases}:#$PREFIX*}
+    return 1
+}
+zstyle ':completion:*' completer _complete_alias _complete _ignored
+
+# Plugin: fzf & fzf-tab
+# https://vitormv.github.io/fzf-themes/
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+    --border="rounded" --border-label="  Search  " --border-label-pos="4" --preview-window="border-rounded"
+    --padding="0" --prompt="  " --marker="*" --pointer=" "
+    --separator="" --no-scrollbar --info="hidden"'
+
+# Plugin: nvm
+zstyle ':omz:plugins:nvm' lazy yes
+zstyle ':omz:plugins:nvm' lazy-cmd eslint tsc prettier typescript
+zstyle ':omz:plugins:nvm' autoload yes
+zstyle ':omz:plugins:nvm' silent-autoload yes
+
+# Plugin: ssh-agent
+zstyle :omz:plugins:ssh-agent quiet yes
+zstyle :omz:plugins:ssh-agent lazy yes
+zstyle :omz:plugins:ssh-agent lifetime 30m
+zstyle :omz:plugins:ssh-agent ssh-add-args --apple-load-keychain -t 30m
+
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+    fzf
+    git
+    nvm
+    tmux
+    fzf-tab
+    extract
+    ssh-agent
+    zsh-vi-mode
+    common-aliases
+    colored-man-pages
+    zsh-you-should-use
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+)
+
+# {{ if eq .chezmoi.os "darwin" }}
+# https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+# {{ end }}
+
+# https://ohmyz.sh/#install
+source "${ZSH}/oh-my-zsh.sh"
+
+# Order: after sourcing oh-my-zsh
+# https://starship.rs/guide/#%F0%9F%9A%80-installation
+eval "$(starship init zsh)"
+
+# Disabled initial new line in starship & added it here
+precmd() { precmd() { echo } }
+
+# zprof

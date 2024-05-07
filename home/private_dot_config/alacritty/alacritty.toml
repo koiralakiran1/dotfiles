@@ -1,17 +1,16 @@
 import = [
-	"~/.config/alacritty/themes/tokyo-night.toml"
+   "~/.config/alacritty/themes/catppuccin_mocha.toml",
 ]
 
 [cursor.style]
 blinking = "Always"
 
 [window]
-opacity = 0.70
+opacity = 1
 blur = true
 startup_mode = "Fullscreen"
 padding = { x = 10, y = 10 }
 
 [font]
 size = 16
-normal = { family = "MesloLGM Nerd Font", style = "Regular" }
-
+normal = { family = "MesloLGL Nerd Font", style = "Regular" }
