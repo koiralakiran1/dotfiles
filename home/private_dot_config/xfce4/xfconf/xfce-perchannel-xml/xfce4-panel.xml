@@ -199,6 +199,9 @@
         <value type="string" value="blueman"/>
       </property>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="wi-fi network connection “koiralas (2.5)” active: koiralas (2.5) (52%)"/>
+        <value type="string" value="wi-fi network connection “koiralas (2.5)” active: koiralas (2.5) (51%)"/>
+        <value type="string" value="wi-fi network connection “koiralas (2.5)” active: koiralas (2.5) (60%)"/>
         <value type="string" value="task manager"/>
         <value type="string" value="wi-fi network connection “tp-link_9e98” active: tp-link_9e98 (65%)"/>
         <value type="string" value="ethernet network connection “wired connection 1” active"/>
