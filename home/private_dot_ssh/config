@@ -1,6 +1,7 @@
+Host *
+    AddKeysToAgent yes
+
 Host github.com
-    IgnoreUnknown UseKeychain
 	AddKeysToAgent yes
-	UseKeychain yes
 	IdentityFile ~/.ssh/github_auth
 

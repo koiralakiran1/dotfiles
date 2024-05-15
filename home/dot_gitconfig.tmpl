@@ -1,26 +1,65 @@
 [user]
 	name = {{ .fullName | quote }}
 	email = {{ .email | quote }}
-    signingkey = ~/.ssh/github_sign.pub
+    signingkey = ~/.ssh/github_sign
+
 [alias]
 	s = status
 	b = branch
 	shame = blame -w -M
 	unstage = reset HEAD --
 	recent = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
-[pull]
-	ff = only
-[pager]
-	branch = false
-[init]
-	defaultBranch = main
-[credential]
-	helper = cache --timeout=86400
+
 [core]
 	editor = nvim
+    pager = delta
+
+[pull]
+	ff = only
+
+[pager]
+	branch = false
+    diff = true
+
+[init]
+	defaultBranch = main
+
+[credential]
+	helper = cache --timeout=86400
+
 [gpg]
     format = ssh
+
 [gpg "ssh"]
     allowedSignersFile = ~/.ssh/allowed_signers
+    program = git-commit-sign # Custom script in PATH that unlocks and adds signingkey to ssh-agent
+
 [commit]
     gpgsign = true
+
+[interactive]
+    diffFilter = delta --color-only --feature=interactive
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    side-by-side = true
+    line-numbers = true
+    features = decorations
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+
+[delta "interactive"]
+    keep-plus-minus-markers = true
+
+[delta "decorations"]
+    commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax

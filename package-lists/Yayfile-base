@@ -16,6 +16,9 @@ bat-extras
 shellcheck
 ripgrep
 tmux
+fd
+ripgrep
+git-delta
 
 alacritty
 discord
@@ -26,4 +29,4 @@ visual-studio-code-bin
 ttf-firacode-nerd
 ttf-hack-nerd
 ttf-meslo-nerd
-ttf-font-awesome-5
+otf-comicshanns-nerd

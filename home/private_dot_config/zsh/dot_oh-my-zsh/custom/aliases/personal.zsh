@@ -41,7 +41,7 @@ alias gforh="gfo --prune && groh"
 alias node10="nvm use 10 && nvm alias default 10"
 alias node12="nvm use 12 && nvm alias default 12"
 alias node16="nvm use 16 && nvm alias default 16"
-alias npm="nocorrect npm"
+# alias npm="nocorrect npm"
 
 # Java
 alias java8="sudo archlinux-java set java-8-openjdk"

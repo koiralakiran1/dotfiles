@@ -93,6 +93,10 @@ vim.g.maplocalleader = " "
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
+-- Disable netrw so that directories open with neotree - comment if you face any issue
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrw = 1
+
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
@@ -228,6 +232,10 @@ require("lazy").setup({
     -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
     "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 
+    -- Toggle terminal easily
+    -- Might need config changes
+    --"akinsho/toggleterm.nvim"
+
     -- NOTE: Plugins can also be added by using a table,
     -- with the first argument being the link and the following
     -- keys can be used to configure plugin behavior/loading/etc.
@@ -358,7 +366,11 @@ require("lazy").setup({
                 --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
                 --   },
                 -- },
-                -- pickers = {}
+                pickers = {
+                    find_files = {
+                        hidden = true,
+                    },
+                },
                 extensions = {
                     ["ui-select"] = {
                         require("telescope.themes").get_dropdown(),
@@ -580,8 +592,31 @@ require("lazy").setup({
                 --    https://github.com/pmizio/typescript-tools.nvim
                 --
                 -- But for many setups, the LSP (`tsserver`) will work just fine
-                -- tsserver = {},
+                tsserver = {},
                 --
+
+                jsonls = {},
+
+                graphql = {
+                    filetypes = {
+                        "typescript",
+                        "typescriptreact",
+                        "javascript",
+                        "javascriptreact",
+                        "graphql",
+                    },
+                },
+
+                yamlls = {
+                    settings = {
+                        yaml = {
+                            -- ... other settings. note this overrides the lspconfig defaults.
+                            schemas = {
+                                ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+                            },
+                        },
+                    },
+                },
 
                 lua_ls = {
                     -- cmd = {...},
@@ -825,6 +860,7 @@ require("lazy").setup({
             -- Simple and easy statusline.
             --  You could remove this setup call if you don't like it,
             --  and try some other statusline plugin
+            --  Alternative: lualine
             local statusline = require("mini.statusline")
             -- set use_icons to true if you have a Nerd Font
             statusline.setup({ use_icons = vim.g.have_nerd_font })
@@ -885,8 +921,8 @@ require("lazy").setup({
     --
     -- require 'kickstart.plugins.debug',
     require("kickstart.plugins.indent_line"),
-    -- require 'kickstart.plugins.lint',
-    -- require 'kickstart.plugins.autopairs',
+    require("kickstart.plugins.lint"),
+    require("kickstart.plugins.autopairs"),
     require("kickstart.plugins.neo-tree"),
     require("kickstart.plugins.gitsigns"), -- adds gitsigns recommend keymaps
 
@@ -916,6 +952,17 @@ require("lazy").setup({
             lazy = "💤 ",
         },
     },
+})
+
+-- Auto-toggle neo-tree
+-- Maybe this should go in init() or config() of neovim?
+vim.api.nvim_create_autocmd("VimEnter", {
+    pattern = "*",
+    callback = function()
+        vim.cmd("Neotree filesystem reveal left")
+    end,
+    group = vim.api.nvim_create_augroup("auto_open_neotree", { clear = true }),
+    desc = "Auto open Neo-tree when entering buffer",
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`

@@ -20,9 +20,12 @@ export ZSH="$HOME/.config/zsh/.oh-my-zsh" # Path to my oh-my-zsh installations
 export TLDR_CACHE_DIR="$XDG_CACHE_HOME"
 export CARGO_HOME="$HOME/.extras/.cargo"
 export RUSTUP_HOME="$HOME/.extras/.rustup"
-export DOCKER_CONFIG="$HOME/.extras/.docker"
+export DOCKER_CONFIG="$HOME/.extras/.docker" # This won't work on Mac because of docker desktop, as it won't source this file
 export GEM_HOME="$HOME/.extras/.gem"
 export GEM_PATH="$HOME/.extras/.gem"
+export TERMINFO_DIRS="$HOME/.extras/.terminfo"
+export NVM_DIR="$HOME/.local/share/nvm"
+export GOPATH="$HOME/.local/share/go"
 
 # Set JDK installation directory according to selected Java compiler
 # https://stackoverflow.com/a/29622512/6740339

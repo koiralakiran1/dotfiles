@@ -19,6 +19,9 @@ function () {
     alias -g @dotfiles.d="$chezmoi_source"
     alias -g @chezmoiexternals.d="$chezmoi_source/.chezmoiexternals"
 
+    alias -g @brew_list="$chezmoi_repo/package-lists/Brewfile-base"
+    alias -g @yay_list="$chezmoi_repo/package-lists/Yayfile-base"
+
     alias -g @starshiprc="$config_dir/starship.toml"
 
     alias -g @nvimrc="$config_dir/nvim/init.lua"
@@ -84,6 +87,9 @@ function () {
 
     alias vi.nvimrc="$e @nvimrc"
     alias vi.neovimrc="$e @neovimrc"
+
+    alias vi.brew_list="$e @brew_list"
+    alias vi.yay_list="$e @yay_list"
 
     alias vi.tmuxrc="$e @tmuxrc"
 

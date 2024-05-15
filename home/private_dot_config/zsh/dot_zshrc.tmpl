@@ -19,7 +19,7 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 
 # Plugin: nvm
 zstyle ':omz:plugins:nvm' lazy yes
-zstyle ':omz:plugins:nvm' lazy-cmd eslint tsc prettier typescript
+zstyle ':omz:plugins:nvm' lazy-cmd bw eslint tsc prettier typescript
 zstyle ':omz:plugins:nvm' autoload yes
 zstyle ':omz:plugins:nvm' silent-autoload yes
 
@@ -27,7 +27,8 @@ zstyle ':omz:plugins:nvm' silent-autoload yes
 zstyle :omz:plugins:ssh-agent quiet yes
 zstyle :omz:plugins:ssh-agent lazy yes
 zstyle :omz:plugins:ssh-agent lifetime 30m
-zstyle :omz:plugins:ssh-agent ssh-add-args --apple-load-keychain -t 30m
+zstyle :omz:plugins:ssh-agent identities github_auth github_sign
+zstyle :omz:plugins:ssh-agent ssh-add-args -t 30m
 
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(

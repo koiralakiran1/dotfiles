@@ -1,0 +1,19 @@
+#! /usr/bin/env bash
+
+declare signingKey
+while getopts "Y:n:f:" flag;
+do
+    case "${flag}" in
+        f) signingKey="${OPTARG}";;
+    esac
+done
+
+if [[ -z "${signingKey}" ]];
+then
+    echo "Invalid signingkey. Check your ~/.gitconfig"
+    exit 1
+fi
+
+# No need to pass lifetime (-t) here as ssh-agent starts with 30m default lifetime from zshrc plugin
+ssh-add -T "${signingKey}" 2>&- || ssh-add "${signingKey}"
+exec ssh-keygen "$@"
