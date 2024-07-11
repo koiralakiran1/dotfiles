@@ -27,5 +27,10 @@ path=(
 	"$HOME/.local/share/scripts/personal"
 	"$HOME/.local/share/scripts"
 	"${ANDROID_HOME:-$HOME/Android/Sdk}/platform-tools"
+    "$GEM_HOME/bin"
+    "/opt/homebrew/opt/curl/bin"
+    "/opt/homebrew/opt/ruby/bin"
+    "${PYENV_ROOT:-$HOME/.pyenv}/bin"
+    "$HOME/.local/bin"
 	$path
 )
