@@ -30,7 +30,11 @@ export PYENV_ROOT="$HOME/.pyenv"
 
 # Set JDK installation directory according to selected Java compiler
 # https://stackoverflow.com/a/29622512/6740339
+# {{ if eq .chezmoi.os "linux" }}
 export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
+# {{ else if eq .chezmoi.os "darwin" }}
+export JAVA_HOME=$(/usr/libexec/java_home -v 21)
+# {{ end }}
 
 # For compilers to find ruby you may need to set:
 export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"

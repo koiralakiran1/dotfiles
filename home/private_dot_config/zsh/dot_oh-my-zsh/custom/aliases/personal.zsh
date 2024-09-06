@@ -27,6 +27,7 @@ alias bw='NODE_OPTIONS="--no-deprecation" bw'
 #alias python=python3
 alias py=python
 alias wpy="which python"
+alias pyv="python --version"
 alias vim=edit
 alias vi=edit
 alias v=edit
