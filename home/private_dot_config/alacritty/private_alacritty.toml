@@ -3,10 +3,13 @@
 blinking = 'Always'
 
 [window]
-opacity = 0.9
+opacity = 0.5
 blur = true
-startup_mode = 'Fullscreen'
+position = { x = 100, y = 100 }
+# startup_mode = 'SimpleFullscreen'
+#decorations = "None"
 padding = { x = 10, y = 10 }
+dimensions = { columns = 190, lines = 45 }
 decorations_theme_variant = 'Dark'
 
 [font]

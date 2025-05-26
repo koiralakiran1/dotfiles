@@ -26,13 +26,12 @@ export GEM_PATH="$HOME/.extras/.gem"
 export TERMINFO_DIRS="$HOME/.extras/.terminfo"
 export NVM_DIR="$HOME/.local/share/nvm"
 export GOPATH="$HOME/.local/share/go"
-export PYENV_ROOT="$HOME/.pyenv"
 
 # Set JDK installation directory according to selected Java compiler
 # https://stackoverflow.com/a/29622512/6740339
-# 
+#
 export JAVA_HOME=$(/usr/libexec/java_home -v 21)
-# 
+#
 
 # For compilers to find ruby you may need to set:
 export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
@@ -43,10 +42,16 @@ export PKG_CONFIG_PATH="/opt/homebrew/opt/ruby/lib/pkgconfig"
 
 # Define Android sdk root
 
-# 
+#
 export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk/"
 export ANDROID_HOME="$HOME/Library/Android/sdk/"
-# 
+#
 
 export SDKMAN_DIR="$HOME/.sdkman"
 
+# docker compose
+# Compose now can delegate build to bake for better performances Just set COMPOSE_BAKE=true
+export COMPOSE_BAKE=true
+
+# gcloud setup
+export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/gcloud/application_default_credentials.json"
