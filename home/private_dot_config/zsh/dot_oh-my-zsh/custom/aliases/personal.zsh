@@ -24,7 +24,7 @@ alias paths="echo $PATH | tr : '\n'"
 
 # Programs
 alias bw='NODE_OPTIONS="--no-deprecation" bw'
-alias python=python3
+# alias python=python3
 alias py=python
 alias wpy="which python"
 alias pyv="python --version"
@@ -43,6 +43,8 @@ alias node10="nvm use 10 && nvm alias default 10"
 alias node12="nvm use 12 && nvm alias default 12"
 alias node16="nvm use 16 && nvm alias default 16"
 alias node18="nvm use 18 && nvm alias default 18"
+alias node20="nvm use 20 && nvm alias default 20"
+alias node22="nvm use 22 && nvm alias default 22"
 # alias npm="nocorrect npm"
 
 # Java
